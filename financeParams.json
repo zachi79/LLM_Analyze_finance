@@ -1,0 +1,13 @@
+{
+  "general": {
+    "useS3": false
+  },
+  "loadFinanceData": {
+    "useSpecificStocks": true,
+    "specificStocks": ["AMZN", "TSLA", "MSFT"],
+    "reloadData": false,
+    "startDate": "2020-02-26",
+    "endDate": "2025-02-26"
+  }
+
+}
