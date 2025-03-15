@@ -1,4 +1,5 @@
 from src.classGetFinanceData import GetFinanceData
+from src.technicalIndicatorsCalcs.calc_SMA_EMA import calc_SMA_EMA
 
 
 class AnalyzeFinanceData(GetFinanceData):
@@ -17,4 +18,6 @@ class AnalyzeFinanceData(GetFinanceData):
 
         :return: Indicators Calcs
         """
+        self.calcSMA, self.calcEMA = calc_SMA_EMA(self.data, self.params)
+
         pass

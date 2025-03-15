@@ -48,10 +48,10 @@ class GetFinanceData(Params):
                 pickle.dump(sp500_data, f)
 
     def get_data_specific(self):
-        tickers = self.params.loadFinanceData.specificStocks
+        tickers = self.params.loadFinanceData.specificStock
 
         # Download hourly data
-        data = {ticker: yf.download(ticker, period="30d", interval="1h") for ticker in tickers}
-
+        #data = {ticker: yf.download(ticker, period="30d", interval="1h") for ticker in tickers}
+        data = yf.download(tickers, period="30d", interval="1h")
         return data
 
