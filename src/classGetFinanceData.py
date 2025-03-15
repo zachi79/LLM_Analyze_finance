@@ -50,8 +50,9 @@ class GetFinanceData(Params):
     def get_data_specific(self):
         tickers = self.params.loadFinanceData.specificStock
 
-        # Download hourly data
-        #data = {ticker: yf.download(ticker, period="30d", interval="1h") for ticker in tickers}
+        # Download hourly data - can be change later
+        #data = {ticker: yf.download(ticker, period="30d", interval="1h") # for ticker in tickers} # get several stocks data
         data = yf.download(tickers, period="30d", interval="1h")
+        data.columns = data.columns.droplevel(1) # to remove the name of the stock
         return data
 

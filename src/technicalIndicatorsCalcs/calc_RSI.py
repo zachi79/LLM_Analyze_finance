@@ -1,4 +1,4 @@
-import ta
+import ta # Technical Analysis library to financial time series datasets
 '''
 from the internet/chatgpt
 
@@ -33,27 +33,8 @@ data['RSI_7'] = calculate_rsi(data, window=7)   # Faster signal
 data['RSI_14'] = calculate_rsi(data, window=14)  # Standard short-term RSI
 
 '''
-def calc1RSI(data, param):
 
-    delta = data['Close'].diff(1)  # Price difference
-
-    gain = (delta.where(delta > 0, 0))  # Keep gains, set losses to 0
-    loss = (-delta.where(delta < 0, 0))  # Keep losses, set gains to 0
-
-    avg_gain = gain.rolling(window=param.technicalIndicators.rsiWindow, min_periods=1).mean()
-    avg_loss = loss.rolling(window=param.technicalIndicators.rsiWindow, min_periods=1).mean()
-
-    rs = avg_gain / avg_loss  # Relative Strength
-    rsi = 100 - (100 / (1 + rs))  # RSI formula
-
-    return rsi
-
-
-def calc2RSI(data, param):
+def calc_RSI(data, param):
     rsi = ta.momentum.RSIIndicator(close=data['Close'], window=param.technicalIndicators.rsiWindow).rsi()
     return rsi
 
-def calc_RSI(data, param):
-    c1RSI = calc1RSI(data, param)
-    # c2RSI = calc2RSI(data, param) # another solution but need to change the Data for this. TBD
-    return c1RSI

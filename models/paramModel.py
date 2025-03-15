@@ -14,9 +14,14 @@ class GeneralModel(BaseModel):
     useS3: bool = Field(default=False, description="Whether to use AWS S3")
 
 class TechnicalIndicatorsModel(BaseModel):
-    smaWindow: int = Field(default=False, description="SMA indicator")
-    emaWindow: int = Field(default=False, description="EMA indicator")
-    rsiWindow: int = Field(default=False, description="RSI indicator")
+    smaWindow: float = Field(default=False, description="SMA indicator Window")
+    emaWindow: float = Field(default=False, description="EMA indicator Window")
+    rsiWindow: float = Field(default=False, description="RSI indicator Window")
+    macdShortWindow: float = Field(default=False, description="MACD indicator Short Window")
+    macdLongWindow: float = Field(default=False, description="MACD indicator Long Window")
+    macdSignalWindow: float = Field(default=False, description="MACD indicator Signal Window")
+    bollingerBandsWindow: float = Field(default=False, description="Bollinger Bands indicator Window")
+    bollingerBandsWindowDev: float = Field(default=False, description="Bollinger Bands indicator Window Dev")
 
 
 #  Define dataclass to store validated parameters
@@ -35,9 +40,14 @@ class General:
 
 @dataclass
 class TechnicalIndicators:
-    smaWindow: int
-    emaWindow: int
-    rsiWindow: int
+    smaWindow: float
+    emaWindow: float
+    rsiWindow: float
+    macdShortWindow: float
+    macdLongWindow: float
+    macdSignalWindow: float
+    bollingerBandsWindow: float
+    bollingerBandsWindowDev: float
 
 @dataclass
 class ParamsModel:

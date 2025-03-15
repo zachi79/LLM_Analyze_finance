@@ -1,11 +1,15 @@
+import ta
 
-import pandas as pd
+def calculate_sma(data, SMAWindow):
+    sma_indicator = ta.trend.SMAIndicator(close=data['Close'], window=int(SMAWindow))
+    data['SMA_20'] = sma_indicator.sma_indicator()
+    return data
 
-def calculate_sma(data, window):
-    return data['Close'].rolling(window=window).mean()
+def calculate_ema(data, EMAWindow):
+    ema_indicator = ta.trend.EMAIndicator(close=data['Close'], window=int(EMAWindow))
+    data['EMA_20'] = ema_indicator.ema_indicator()
+    return data
 
-def calculate_ema(data, window):
-    return data['Close'].ewm(span=window, adjust=False).mean()
 
 def calc_SMA_EMA(data, params):
     """

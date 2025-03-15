@@ -39,6 +39,12 @@ class Params:
             technical_indicators_data = TechnicalIndicators(smaWindow=technical_indicators_validated.smaWindow,
                                                             emaWindow=technical_indicators_validated.emaWindow,
                                                             rsiWindow=technical_indicators_validated.rsiWindow,
+                                                            macdShortWindow=technical_indicators_validated.macdShortWindow,
+                                                            macdLongWindow=technical_indicators_validated.macdLongWindow,
+                                                            macdSignalWindow=technical_indicators_validated.macdSignalWindow,
+                                                            bollingerBandsWindow=technical_indicators_validated.bollingerBandsWindow,
+                                                            bollingerBandsWindowDev=technical_indicators_validated.bollingerBandsWindowDev
+
                                                             )
 
             return ParamsModel(general=general_data,

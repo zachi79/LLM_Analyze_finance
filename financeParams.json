@@ -12,7 +12,12 @@
   "technicalIndicatorsCalcs": {
     "smaWindow": 3,
     "emaWindow": 3,
-    "rsiWindow": 14
+    "rsiWindow": 14,
+    "macdShortWindow": 12,
+    "macdLongWindow": 26,
+    "macdSignalWindow": 9,
+    "bollingerBandsWindow": 10,
+    "bollingerBandsWindowDev": 3
   }
 
 }
