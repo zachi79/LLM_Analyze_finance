@@ -11,7 +11,8 @@
   },
   "technicalIndicatorsCalcs": {
     "smaWindow": 3,
-    "emaWindow": 3
+    "emaWindow": 3,
+    "rsiWindow": 14
   }
 
 }

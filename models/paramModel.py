@@ -16,6 +16,7 @@ class GeneralModel(BaseModel):
 class TechnicalIndicatorsModel(BaseModel):
     smaWindow: int = Field(default=False, description="SMA indicator")
     emaWindow: int = Field(default=False, description="EMA indicator")
+    rsiWindow: int = Field(default=False, description="RSI indicator")
 
 
 #  Define dataclass to store validated parameters
@@ -36,6 +37,7 @@ class General:
 class TechnicalIndicators:
     smaWindow: int
     emaWindow: int
+    rsiWindow: int
 
 @dataclass
 class ParamsModel:

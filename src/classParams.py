@@ -37,7 +37,8 @@ class Params:
                 endDate=load_finance_data_validated.endDate
             )
             technical_indicators_data = TechnicalIndicators(smaWindow=technical_indicators_validated.smaWindow,
-                                                            emaWindow=technical_indicators_validated.emaWindow
+                                                            emaWindow=technical_indicators_validated.emaWindow,
+                                                            rsiWindow=technical_indicators_validated.rsiWindow,
                                                             )
 
             return ParamsModel(general=general_data,
