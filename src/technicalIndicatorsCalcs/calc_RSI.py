@@ -56,4 +56,4 @@ def calc2RSI(data, param):
 def calc_RSI(data, param):
     c1RSI = calc1RSI(data, param)
     # c2RSI = calc2RSI(data, param) # another solution but need to change the Data for this. TBD
-    return
+    return c1RSI
