@@ -6,8 +6,8 @@ from src.classParams import Params
 
 
 class GetFinanceData(Params):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, param):
+        super().__init__(param)
         if self.params.loadFinanceData.useSpecificStocks == True:
             self.data = self.get_data_specific()
         else:

@@ -5,9 +5,10 @@ from models.paramModel import General, LoadFinanceDataData, GeneralModel, LoadFi
 
 
 class Params:
-    def __init__(self):
+    def __init__(self, param):
         self.paramsFile = r"D:\learn\PythonProject\LLM_Analyze_finance\financeParams.json"
         self.params = self.load_params_from_json(self.paramsFile)
+        self.update_params_model(param)
         pass
 
     def __enter__(self):
@@ -16,6 +17,23 @@ class Params:
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         pass
+
+    def update_params_model(self, update_dict: dict) -> ParamsModel:
+        """Updates a ParamsModel dataclass with values from a dictionary."""
+
+        for key, value in update_dict.items():
+            if hasattr(self.params, key):
+                field_type = type(getattr(self.params, key))
+                if isinstance(value, dict) and field_type.__name__ == type(getattr(self.params, key)).__name__:
+                    # Recursively update nested dataclasses
+                    nested_dataclass = getattr(self.params, key)
+                    for nested_key, nested_value in value.items():
+                        if hasattr(nested_dataclass, nested_key):
+                            setattr(nested_dataclass, nested_key, nested_value)
+                else:
+                    setattr(self.params, key, value)
+        return self.params
+
 
     def load_params_from_json(self, file_path: str):
         try:

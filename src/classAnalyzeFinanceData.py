@@ -6,8 +6,8 @@ from src.technicalIndicatorsCalcs.calc_SMA_EMA import calc_SMA_EMA
 
 
 class AnalyzeFinanceData(GetFinanceData):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, param):
+        super().__init__(param)
 
         pass
 
