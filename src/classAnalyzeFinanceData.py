@@ -25,4 +25,5 @@ class AnalyzeFinanceData(GetFinanceData):
         self.calcRSI = calc_RSI(self.data, self.params)
         self.calcMACD = calc_MACD(self.data, self.params)
         self.calcBollingerBands = calc_Bollinger_Bands(self.data, self.params)
-        pass
+
+        return self.calcBollingerBands

@@ -1,6 +1,6 @@
 from src.classAnalyzeFinanceData import AnalyzeFinanceData
 from enum import Enum
-
+import random
 from src.utils.getListOfCompanies import getListOfCompanies
 
 
@@ -24,13 +24,22 @@ def learnAnalyzeFinance():
     '''
 
     param = {"loadFinanceData":{}}
+    table = {}
     sp500_tickers = getListOfCompanies()
-    for tickers in sp500_tickers:
+    random.shuffle(sp500_tickers) #every time I will get diff list to learn and test
+
+    # get the data and calc the indicators
+    print("Start - get the data and calc the indicators")
+    for tickers in sp500_tickers[0:50]:
+        print(f"tickers: {tickers}")
         param["loadFinanceData"]["specificStock"] = [tickers]
         with AnalyzeFinanceData(param) as analyze_financeData:
-            analyze_financeData.technicalIndicatorsCalcs()
+            table[tickers] = analyze_financeData.technicalIndicatorsCalcs()
             pass
+    print("Done - get the data and calc the indicators")
+    # ML learn - 80% of the companies
 
+    #ML test - 20% of the companies
 
 
 if __name__ == "__main__":
